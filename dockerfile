@@ -13,14 +13,11 @@ RUN go mod download
 # Copy the source from the current directory to the Working Directory inside the container
 COPY . .
 
-# Debug step to list files in /app directory
-RUN ls -la /app
-
 # Build the Go app
 RUN go build -o main .
 
 # Start a new stage from scratch
-FROM alpine:latest
+FROM alpine:3.14
 
 WORKDIR /root/
 
